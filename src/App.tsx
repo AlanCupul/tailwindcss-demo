@@ -29,65 +29,68 @@ function App() {
 
   return (
     <>
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="profile-card">
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md mx-auto">
         {/* Profile image input */}
-        <div className="profile-image">
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="hidden"
-            ref={fileInputRef}
-          />
-        
-          <div 
-            onClick={handleProfileImageClick}
-            className="profile-info"
-          >
-            {imageUrl ? (
-              <img
-                src={imageUrl}
-                alt="Profile"
-                className="w-full h-full object-cover rounded-full"
-              />
-            ) : (
-              <div className="flex justify-center items-center w-full h-full text-gray-400">
-                <span className="text-2xl">+</span>
-              </div>
-            )}
-          </div>
-        </div>
-          {/* Name input */}
-          <div className="mb-6">
+        <div className="profile-card">
+          <div className="mt-8 mb-8 mx-auto relative w-32 h-32">
             <input
-              type="text"
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="name-input"
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              className="hidden"
+              ref={fileInputRef}
             />
+          
+            <div 
+              onClick={handleProfileImageClick}
+              className="w-full h-full border-2 border-dashed border-gray-300 rounded-full cursor-pointer overflow-hidden"
+            >
+              {imageUrl ? (
+                <img
+                  src={imageUrl}
+                  alt="Profile"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              ) : (
+                <div className="flex justify-center items-center w-full h-full text-gray-400">
+                  <span className="text-2xl">+</span>
+                </div>
+              )}
+            </div>
           </div>
-          {/* Bio textarea */}
-          <div className="mb-6">
-            <textarea
-              rows="3"
-              placeholder="Write a short bio about yourself..."
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
-              className="bio-textarea"
-            ></textarea>
+            {/* Name input */}
+            <div className="mb-6 flex justify-center">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-1/2 md:w-3/4 lg:w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+              />
+            </div>
+            {/* Bio textarea */}
+            <div className="mb-6 flex justify-center">
+              <textarea
+                rows="3"
+                placeholder="Write a short bio about yourself..."
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
+                className="w-1/2 md:w-3/4 lg:w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
+              ></textarea>
+            </div>
           </div>
-        </div>
 
-        {/* Save Changes Button */}
-        <div className="save-button">
-          <button>
-            Save Changes
-          </button>
-        </div>
+          {/* Save Changes Button */}
+          <div className="mt-8 flex justify-center">
+            <button 
+              className="w-full bg-blue-600 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            >
+              Save Changes
+            </button>
+          </div>
       </div>
-    
+    </div>
     </>
   )
 }
